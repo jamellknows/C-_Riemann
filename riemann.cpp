@@ -6,9 +6,13 @@
 using namespace std;
 
 int main(int argc, char * argv[])
-
-
 {
+
+    if(argc !=3)
+    {
+        cout << "usage: progName <number of zeros>" << endl;
+        return 1;
+    }
     cout << "Please be aware that due to the value of PI used in C++ programs some values will be slightly odd although should technically be even\n" << endl;
     int number = atoi(argv[1]);
     vector <long double> arr1;
@@ -51,6 +55,7 @@ int main(int argc, char * argv[])
     }
     char * letterPointer = argv[2];
     char letter = *letterPointer;
+    if(letter == 'y'){
 
         for (int k = 0; k < lArr1; k++){
             if(((k + 1) % 4) == 0){
@@ -67,6 +72,10 @@ int main(int argc, char * argv[])
         for(int i = 0; i < prime1.size(); i++){
             cout << prime1[i] << "\n";
         }
+
+    }else{
+        cout << "Goodbye\n";
+    }
    
 
     exit(EXIT_SUCCESS);
