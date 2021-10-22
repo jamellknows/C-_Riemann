@@ -13,8 +13,10 @@ int main(int argc, char * argv[])
     int number = atoi(argv[1]);
     vector <long double> arr1;
     vector <long double> arr2;
+    vector <long double> prime1;
+    vector <long double> prime2;
     double theta = M_PI / 3;
-    cout << " In doubles" << endl;
+    // cout << " In doubles" << endl;
     ofstream File("riemann zeros.txt");
     for( int i = 0; i < number ; i++)
     {
@@ -32,19 +34,41 @@ int main(int argc, char * argv[])
 
 
     }
-    cout << "Past loop\n"; 
-    int lArr1 = (sizeof(arr1)/sizeof(arr1[0]));
-    int lArr2 = (sizeof(arr2)/sizeof(arr2[0]));
+    // cout << "Past loop\n"; 
+    int lArr1 = arr1.size();
+   
+    // cout << "lenght of arr1 " << lArr1 <<endl;
     
     // for (int i = 0; i < lArr1; i++){
     //     arr3.push_back(arr1[i]);
     //     arr3.push_back(arr2[i]);
     // }
-    
+
     sort(arr1.begin(), arr1.begin() + lArr1);
     for(int i = 0; i < lArr1; i++)
     {
         cout << arr1[i] << endl;
     }
+    char * letterPointer = argv[2];
+    char letter = *letterPointer;
 
+        for (int k = 0; k < lArr1; k++){
+            if(((k + 1) % 4) == 0){
+                // cout<< "This should be even\n";
+                // cout << arr1[k] <<endl;
+                arr1[k] = arr1[k] + 1;
+                // cout << arr1[k] <<endl;
+            }
+            prime1.push_back(floor(arr1[k]) - 1);
+            prime1.push_back(floor(arr1[k]) + 1);
+            // cout << "Hello\n";
+        }
+        cout << "LIST OF PRIMES" <<endl;
+        for(int i = 0; i < prime1.size(); i++){
+            cout << prime1[i] << "\n";
+        }
+   
+
+    exit(EXIT_SUCCESS);
+    
 }
